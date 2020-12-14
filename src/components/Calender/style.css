@@ -1,0 +1,116 @@
+.calendar-container,
+.calendar,
+.calendar-header,
+tr {
+  padding: 0px;
+  margin: 0;
+  overflow-x: auto;
+}
+
+td{
+  padding: 15px 0px;
+}
+
+.calendar {
+  background-color: transparent;
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+  color: #4e9857;
+}
+
+.calendar-header {
+  font-size: 1.3em;
+}
+
+.calendar-header td {
+  border-spacing: 0;
+  padding-left: 5px;
+}
+
+.day,
+.empty-slot,
+.week-day {
+  text-align: center;
+  height: 40px;
+}
+
+.week-day {
+  font-size: 1em;
+}
+
+.day {
+  font-size: 1em;
+}
+
+.day {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+}
+.current-day {
+  /* background-color: #4285f473;
+  line-height: 28px;
+  border-radius: 50%; */
+  color: white;
+}
+td span {
+  padding: 20px;
+}
+.current-day span { 
+  border-radius: 50%;
+  background-color:  #4285f473;
+}
+.selected-day {
+  background-color: yellow;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  border-radius: 2%;
+  color: black;
+}
+
+.month-popup {
+  position: absolute;
+  padding: 5px;
+  background: white;
+  border: 2px solid skyblue;
+}
+
+.month-popup div {
+  padding: 0.3em;
+}
+
+.nav-month {
+  position: absolute;
+  top: 0.6em;
+  font-size: 0.6em;
+  right: 3px;
+}
+
+.prev {
+}
+
+.next {
+}
+
+.editor-year {
+  max-width: 3.6em;
+}
+
+.label-month,
+.label-year {
+  font-size: 0.6em;
+}
+
+.label-month {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 900px) {
+  td{
+    padding: 0px 0px;
+  }
+  
+}

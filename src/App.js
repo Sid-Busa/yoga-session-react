@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Box from "@material-ui/core/Box";
+import FirstSide from "./components/Firstside";
+import SecondSide from "./components/Secondside";
+import "./App.css";
+window.console.log = () => {}
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <Box
+        display="flex"
+        bgcolor="background.paper"
+        className="main_container"
+      >
+        <Box
+          bgcolor="#343e48"
+          className="box_1"
         >
-          Learn React
-        </a>
-      </header>
+          <FirstSide />
+        </Box>
+        <Box  className="box_2"  bgcolor="#343e48">
+          <SecondSide />
+        </Box>
+      </Box>
     </div>
   );
 }

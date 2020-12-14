@@ -1,0 +1,56 @@
+.card_info {
+    display: flex;
+    border-radius: 15px;
+    box-shadow: 3px 4px 15px grey;
+    align-items: center;
+    /* justify-content: space-evenly; */
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.card_info_time{
+    flex: 0.2;
+    text-align: center;
+}
+.card_info_time_duration{
+    width:77%;
+    max-width: 100px;
+    text-align: end;
+}
+.card_info_description{
+    flex: 0.6;
+}
+.prize{
+    flex: 0.2;
+    text-align: center;
+    max-width: 100px;
+}
+
+.card_info_time .card_info_time_duration > h4 {
+    font-size: 13px;
+}
+.card_info_time .card_info_time_duration > p, h4 {
+    margin: 0px;
+    padding: 0px;
+}
+.card_info_time .card_info_time_duration > p {
+    font-size: 13px;
+    
+}
+.card_info_description > h4 {
+    padding: 0px;
+    margin: 0px;
+    font-size: 13px;
+}
+.prize {
+    color: #435746;
+}
+.register_popup{
+    cursor: pointer;
+}
+/* @media screen and (max-width: 1026px) {
+    .card_info_time > p {
+        font-size: 13px;
+        text-align: left;
+    }
+  } */

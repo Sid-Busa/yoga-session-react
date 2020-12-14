@@ -1,0 +1,14 @@
+.header_logo{
+    background-color: white;
+    padding: 15px;
+    border-radius: 50%;
+    color: #343e48;
+    font-weight: bold;
+    width: 70px;
+    margin:40px
+}
+
+.header_headline > h2{
+    color: #b3e303;
+    margin:60px 40px ;
+}
