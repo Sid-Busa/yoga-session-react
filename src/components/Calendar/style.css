@@ -4,9 +4,10 @@
 tr {
   padding: 0px;
   margin: 0;
-  overflow-x: auto;
 }
-
+.calendar-container{
+  overflow: auto;
+}
 td{
   padding: 15px 0px;
 }

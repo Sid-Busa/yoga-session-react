@@ -1,32 +1,42 @@
-import React, { useState } from "react";
+import React from "react";
 import moment from "moment";
 import "./style.css";
 
-const Calender = ({ selectedDays, dateContext,handleChange,handleDaySelection}) => {
-  
+const Calendar = ({
+  selectedDays,
+  dateContext,
+  handleChange,
+  handleDaySelection,
+}) => {
+  // get short-name of week
   const getWeekdaysShort = moment.weekdaysShort();
-  
+
+  // get year
   const year = () => {
     return dateContext.format("Y");
   };
+  // get month
   const month = () => {
     return dateContext.format("MMMM");
   };
+  // total days in month
   const daysInMonth = () => {
     return dateContext.daysInMonth();
   };
-  const currentDate = () => {
-    return dateContext.get("date");
-  };
+  // get current day
   const currentDay = () => {
     return dateContext.format("D");
   };
+
+  // get first day of month  return week-name index
   const firstDayOfMonth = () => {
     let dateContext1 = dateContext;
     let firstDay = moment(dateContext1).startOf("month").format("d");
+    console.log("firstDay", firstDay);
     return firstDay;
   };
 
+  // week day reflect on DOM
   const weekdays = getWeekdaysShort.map((day) => {
     return (
       <td key={day} className="week-day">
@@ -35,36 +45,54 @@ const Calender = ({ selectedDays, dateContext,handleChange,handleDaySelection}) 
     );
   });
 
+  // first empty slot
   let blanks = [];
-
   for (let i = 0; i < firstDayOfMonth(); i++) {
-    blanks.push(
-      <td key={i * 10} className="emptySlot">
-        {" "}
-        {""}{" "}
-      </td>
-    );
+    blanks.push(<td key={i * 10} className="emptySlot"></td>);
   }
-  const identifySelectedDay = (day) =>{
-    let flag = false
-    selectedDays.map((item) =>{
-      if(item == day ){
-        flag = true
+
+  // return which are the selected day in month
+  const identifySelectedDay = (day) => {
+    let flag = false;
+    selectedDays.map((item) => {
+      if (item == day) {
+        flag = true;
       }
-    })
-    if(flag){
-      return true
-    }else{
-      return false
+    });
+    if (flag) {
+      return true;
+    } else {
+      return false;
     }
-  }
+  };
+
+  // day in month
   let dayInMonth = [];
   for (let day = 1; day <= daysInMonth(); day++) {
     let className = identifySelectedDay(day) ? "day current-day" : "day";
     dayInMonth.push(
-      <td key={day} className={className} onClick={() => handleDaySelection(day)} >
+      <td
+        key={day}
+        className={className}
+        onClick={() => handleDaySelection(day)}
+      >
         <span> {day} </span>
-        {day == currentDay() ? (<i style={{display:'block',fontSize:'20px',fontWeight:'bold',position:'relative',top:"-15px" }} > . </i>) : <i style={{display:'block',visibility:'hidden'}} > . </i> }
+        {day == currentDay() ? (
+          <i
+            style={{
+              display: "block",
+              fontSize: "20px",
+              fontWeight: "bold",
+              position: "relative",
+              top: "-15px",
+            }}
+          >
+            {" "}
+            .{" "}
+          </i>
+        ) : (
+          <i style={{ display: "block", visibility: "hidden" }}> . </i>
+        )}
       </td>
     );
   }
@@ -89,15 +117,17 @@ const Calender = ({ selectedDays, dateContext,handleChange,handleDaySelection}) 
   });
 
   let trElems = rows.map((d, i) => {
-    return <tr key={i * 100}  > {d}</tr>;
+    return <tr key={i * 100}> {d}</tr>;
   });
 
+  // move to previous month
   const previousMonth = () => {
     let dateContext1 = Object.assign({}, dateContext);
     const dateContext2 = moment(dateContext1).subtract(1, "month");
     console.log("previous", dateContext2.get("month"));
     handleChange(dateContext2);
   };
+  // move to next month
   const nextMonth = () => {
     let dateContext1 = Object.assign({}, dateContext);
     const dateContext2 = moment(dateContext1).add(1, "month");
@@ -123,16 +153,12 @@ const Calender = ({ selectedDays, dateContext,handleChange,handleDaySelection}) 
                   padding: "0px 25px",
                 }}
                 onClick={previousMonth}
-              >
-                {" "}
-              </i>
+              ></i>
               <i
                 className="prew fa fas fa-angle-right"
                 style={{ fontSize: "30px", cursor: "pointer" }}
                 onClick={nextMonth}
-              >
-                {" "}
-              </i>
+              ></i>
             </td>
           </tr>
         </thead>
@@ -145,4 +171,4 @@ const Calender = ({ selectedDays, dateContext,handleChange,handleDaySelection}) 
   );
 };
 
-export default Calender;
+export default Calendar;

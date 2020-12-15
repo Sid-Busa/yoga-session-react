@@ -1,10 +1,10 @@
 import React, { Fragment, useState } from "react";
 import Card from "../Card";
 import Register from "../Model";
-import Header from "./header";
+import Header from "./Header";
 import "./style.css";
 
-const FirstSide = () => {
+const EventInfo = () => {
   const [registerPopup, setRegisterPopup] = useState(false);
   const handlePopUPToggle = () => {
     setRegisterPopup((preState) => !preState);
@@ -18,4 +18,4 @@ const FirstSide = () => {
   );
 };
 
-export default FirstSide;
+export default EventInfo;

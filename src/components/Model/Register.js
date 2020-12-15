@@ -10,6 +10,7 @@ const Register = ({ handlePopUPToggle }) => {
   });
   // state for error message
   const [errorMessage, setErrorMessage] = useState(null);
+  
   // method for handling state change
   const handleChange = (e) => {
     const name = e.target.name;

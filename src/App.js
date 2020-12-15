@@ -1,26 +1,18 @@
-import Box from "@material-ui/core/Box";
-import FirstSide from "./components/Firstside";
-import SecondSide from "./components/Secondside";
+import EventInfo from "./components/EventInfo";
+import EventCalendar from "./components/EventCalendar/EventCalendar";
 import "./App.css";
 window.console.log = () => {}
 function App() {
   return (
     <div className="App">
-      <Box
-        display="flex"
-        bgcolor="background.paper"
-        className="main_container"
-      >
-        <Box
-          bgcolor="#343e48"
-          className="box_1"
-        >
-          <FirstSide />
-        </Box>
-        <Box  className="box_2"  bgcolor="#343e48">
-          <SecondSide />
-        </Box>
-      </Box>
+      <div className="container_event_list">
+        <div className="box_1">
+          <EventInfo />
+        </div>
+        <div className="box_2">
+          <EventCalendar />
+        </div>
+      </div>
     </div>
   );
 }

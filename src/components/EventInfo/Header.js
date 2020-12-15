@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment ,memo} from "react";
 import "./style.css";
 const Header = () => {
   return (
@@ -13,4 +13,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default memo(Header);
